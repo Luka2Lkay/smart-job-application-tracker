@@ -1,5 +1,6 @@
 import StatsCard from "@/components/dashboard/StatsCard"
 import StatusChart from "@/components/dashboard/StatusChart"
+import RecentApplications from "@/components/dashboard/RecentApplications"
 import { applications } from "@/lib/data/applications"
 
 function DashboardPage() {
@@ -18,6 +19,7 @@ function DashboardPage() {
 
             <div className="grid gap-6 lg:grid-cols-2">
                 <StatusChart applications={applications} />
+                <RecentApplications applications={applications}/>
             </div>
         </main>
     )
