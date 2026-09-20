@@ -1,0 +1,22 @@
+name: Validate main branch
+
+on:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    enforce-branch:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check source branch
+              run: |
+                  echo "Source branch: ${{github.head_ref}}"
+
+                  if [["${{github.head_ref}}" != "develop" && "${{github.actor}}" != "dependabot[bot]"]]; then
+                      echo ":x: Only 'develop' or dependabot branch can be merged into 'main'"
+                      exit 1
+                  fi
+
+                  echo ":white_check_mark: Valid PR from develop or dependabot"
