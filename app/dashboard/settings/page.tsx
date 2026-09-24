@@ -1,4 +1,5 @@
 function SettingsPage() {
+    //setting
     return (
         <main className="p-6">
             <div className="mb-8">
